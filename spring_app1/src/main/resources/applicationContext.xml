@@ -12,4 +12,8 @@
         <constructor-arg value="Neil"/>
     </bean>
 
+    <bean id="musicBean"
+          class="nickolazz1.github.io.ClassicalMusic">
+    </bean>
+
 </beans>
