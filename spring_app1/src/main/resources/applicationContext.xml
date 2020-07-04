@@ -9,7 +9,7 @@
 
     <bean id="testBean"
           class="nickolazz1.github.io.TestBean">
-        <constructor-arg value="Neil"/>
+        <constructor-arg value="Neils"/>
     </bean>
 
     <bean id="musicBean"

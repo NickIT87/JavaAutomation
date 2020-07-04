@@ -1,7 +1,7 @@
 package nickolazz1.github.io;
 
 public class TestBean {
-    private String name;
+    private final String name;
 
     public TestBean(String name) {
         this.name = name;
