@@ -13,7 +13,7 @@
     </bean>
 
     <bean id="musicBean"
-          class="nickolazz1.github.io.ClassicalMusic">
+          class="nickolazz1.github.io.RockMusic">
     </bean>
 
 </beans>

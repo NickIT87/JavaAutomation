@@ -1,7 +1,7 @@
 package nickolazz1.github.io;
 
 public class MusicPlayer {
-    private Music music;
+    private final Music music;
 
     public MusicPlayer(Music music) {
         this.music = music;
