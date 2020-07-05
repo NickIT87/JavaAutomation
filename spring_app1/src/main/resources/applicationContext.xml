@@ -9,11 +9,16 @@
 
     <bean id="testBean"
           class="nickolazz1.github.io.TestBean">
-        <constructor-arg value="Neils"/>
+        <constructor-arg value="Neil"/>
     </bean>
 
     <bean id="musicBean"
-          class="nickolazz1.github.io.RockMusic">
+          class="nickolazz1.github.io.ClassicalMusic">
+    </bean>
+    
+    <bean id="musicPlayer"
+          class="nickolazz1.github.io.MusicPlayer">
+        <property name="music" ref="musicBean"/>
     </bean>
 
 </beans>
