@@ -32,4 +32,13 @@ public class TC1 {
         System.out.println("This is test 2 ... ");
     }
 
+    @BeforeTest
+    void beforeTest() {
+        System.out.println("BeFoReTeSt 1 2");
+    }
+
+    @AfterTest
+    void afterTest() {
+        System.out.println("AfTeRtEsT 1 2");
+    }
 }
