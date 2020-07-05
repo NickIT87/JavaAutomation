@@ -6,8 +6,18 @@
 
             <!--<class name="FirstTestCase"/>
             <class name="SecondTestCase"/>-->
-            <class name="TC1"/>
-            <class name="TC2"/>
+            <class name="TC1">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                </methods>
+            </class>
+            <class name="TC2">
+                <methods>
+                    <include name="test3"/>
+                    <include name="test4"/>
+                </methods>
+            </class>
 
         </classes>
     </test>
