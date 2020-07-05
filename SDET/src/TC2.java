@@ -42,4 +42,14 @@ public class TC2 {
         System.out.println("AfTeRtEsT 3 4 ");
     }
 
+    @BeforeSuite
+    void beforeSuite() {
+        System.out.println("+++ Before Suite +++");
+    }
+
+    @AfterSuite
+    void afterSuite() {
+        System.out.println("+++ After Suite +++");
+    }
+
 }
