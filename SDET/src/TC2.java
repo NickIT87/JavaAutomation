@@ -1,6 +1,6 @@
 import org.testng.annotations.*;
 
-public class TC1 {
+public class TC2 {
 
     @BeforeClass
     void beforeClass() {
@@ -23,13 +23,13 @@ public class TC1 {
     }
 
     @Test
-    void test1() {
-        System.out.println("This is test 1...");
+    void test3() {
+        System.out.println("This is test 3...");
     }
 
     @Test
-    void test2() {
-        System.out.println("This is test 2 ... ");
+    void test4() {
+        System.out.println("This is test 4 ... ");
     }
 
 }
