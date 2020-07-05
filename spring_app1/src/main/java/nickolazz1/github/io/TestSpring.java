@@ -2,8 +2,8 @@ package nickolazz1.github.io;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class TestSpring {
     public static void main(String[] args) {
