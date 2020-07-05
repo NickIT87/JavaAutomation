@@ -16,7 +16,7 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="nickolazz1.github.io.ClassicalMusic">
+          class="nickolazz1.github.io.RapMusic">
     </bean>
     
     <bean id="musicPlayer"
