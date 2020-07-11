@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true" name="C:/Users/nick/Desktop/JavaAutomation/SDET/src">
         <groups>
             <run>
-                <!--<include name="sanity"/>-->
+                <exclude name="sanity"/>
                 <include name="regression"/>
             </run>
         </groups>
