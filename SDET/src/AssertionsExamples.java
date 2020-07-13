@@ -31,7 +31,7 @@ public class AssertionsExamples {
     }
 
     @AfterClass
-    void closeout() {
+    void tearDown() {
         System.out.println("After Class setup ...");
     }
 }
