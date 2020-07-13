@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class AssertionsExamples {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeClass
     void setup() {
@@ -29,7 +29,6 @@ public class AssertionsExamples {
         searchBox.sendKeys("ChromeDriver");
         searchBox.submit();
         //Thread.sleep(5000);  // Let the user actually see something!
-
     }
 
     @AfterClass
