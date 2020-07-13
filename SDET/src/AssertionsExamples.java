@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class AssertionsExamples {
 
-    protected WebDriver driver;
+    WebDriver driver;
 
     @BeforeClass
     void setup() {
@@ -22,7 +22,7 @@ public class AssertionsExamples {
     }
 
     @Test
-    public void testGoogleSearch() throws InterruptedException {
+    public void testGoogleSearch() {
         //Thread.sleep(5000);  // Let the user actually see something!
         WebElement searchBox = driver.findElement(By.name("q"));
         Assert.assertTrue(searchBox.isDisplayed(), "searchbox is displayed");
