@@ -1,36 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/nick/Desktop/JavaAutomation/SDET/src">
-        <groups>
-            <run>
-                <exclude name="sanity"/>
-                <include name="regression"/>
-            </run>
-        </groups>
-
+    
+    <parameter name="url" value="http://www.google.com"/>
+    <test verbose="2" preserve-order="true" name="C:/Users/nick/Desktop/JavaAutomation/SDET/src/ParametersExample.java">
         <classes>
-
-            <!--<class name="FirstTestCase"/>
-            <class name="SecondTestCase"/>-->
-
-
-            <!--<class name="TC1">
-                <methods>
-                    <include name="test1"/>
-                    <include name="test2"/>
-                </methods>
-            </class>
-            <class name="TC2">
-                <methods>
-                    <include name="test3"/>
-                    <include name="test4"/>
-                </methods>
-            </class>-->
-
-
-            <class name="GroupingExample"/>
-
+            <class name="ParametersExample"/>
         </classes>
     </test>
 </suite>
