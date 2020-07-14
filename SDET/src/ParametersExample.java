@@ -30,7 +30,8 @@ public class ParametersExample {
                 capabilities
         );
 
-        driver.get(url);
+        System.out.println(url);
+        driver.get("http://www.google.com");
     }
 
     @Test(priority = 0)
