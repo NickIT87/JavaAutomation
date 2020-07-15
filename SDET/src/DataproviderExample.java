@@ -30,14 +30,7 @@ public class DataproviderExample {
         );
     }
 
-    @DataProvider(name = "TestDataProvider")
-    public Object[][] getData() {
-        return new Object[][]{
-                {"ChromeDriver"},{"testNG"}
-        };
-    }
-
-    @Test(dataProvider = "TestDataProvider") // null test
+    @Test(dataProvider = "TestDataProvider", dataProviderClass = CustomDataProvider.class) // null test
     public void testGoogleSearch(String data) {
         driver.get("http://www.google.com");
         //Thread.sleep(5000);  // Let the user actually see something!
