@@ -42,7 +42,7 @@ public class DataproviderExample {
         driver.get("http://www.google.com");
         //Thread.sleep(5000);  // Let the user actually see something!
         WebElement searchBox = driver.findElement(By.name("q"));
-        Assert.assertTrue(searchBox.isDisplayed(), "searchbox is displayed");
+        Assert.assertTrue(searchBox.isDisplayed(), "search box is displayed");
         searchBox.sendKeys(data);
         searchBox.submit();
         //Thread.sleep(5000);  // Let the user actually see something!
