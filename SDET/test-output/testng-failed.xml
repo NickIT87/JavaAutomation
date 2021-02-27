@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="url" value="http://www.google.com"/>
+  <test thread-count="5" name="/media/salamanka/F29EADFA9EADB80D/programming/JavaAutomation/SDET/src/ParametersExample.java(failed)">
+    <classes>
+      <class name="ParametersExample">
+        <methods>
+          <include name="testLogoLink"/>
+          <include name="setup"/>
+          <include name="testGoogleSearch"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- ParametersExample -->
+    </classes>
+  </test> <!-- /media/salamanka/F29EADFA9EADB80D/programming/JavaAutomation/SDET/src/ParametersExample.java(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

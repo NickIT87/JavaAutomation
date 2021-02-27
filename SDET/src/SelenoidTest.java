@@ -20,12 +20,12 @@ public class SelenoidTest {
         // Optional. If not specified, WebDriver searches the PATH for chromedriver.
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("77.0");
+        capabilities.setVersion("88.0");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
 
         driver = new RemoteWebDriver(
-                URI.create("http://192.168.0.105:4444/wd/hub").toURL(),
+                URI.create("http://192.168.122.13:4444/wd/hub").toURL(),
                 capabilities
         );
     }
