@@ -4,12 +4,16 @@ import PageObjects.SearchGooglePage;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 public class GoogleSteps {
@@ -25,13 +29,15 @@ public class GoogleSteps {
         chromeOptions.setImplicitWaitTimeout(Duration.ofSeconds(15));
         // Create the driver object
         this.driver = new ChromeDriver(chromeOptions);
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         driver.get("https://google.com");
-        System.out.println("first");
     }
 
     @And("check search field appears")
     public void check_title() {
-        System.out.println("second");
+        WebElement searchField = driver.findElement(By.name("q"));
+        Assert.assertNotNull(searchField);
+        driver.quit();
     }
 
 }
