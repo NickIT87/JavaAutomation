@@ -35,6 +35,9 @@ public class GoogleSteps {
 
     @And("check search field appears")
     public void check_title() {
+        SearchGooglePage gpage = new SearchGooglePage(driver);
+        gpage.search_request("test");
+
         WebElement searchField = driver.findElement(By.name("q"));
         Assert.assertNotNull(searchField);
         driver.quit();
