@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalaTry.iml" filepath="$PROJECT_DIR$/.idea/modules/scalaTry.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalaTry-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scalaTry-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalatry.iml" filepath="$PROJECT_DIR$/.idea/modules/scalatry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalatry-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scalatry-build.iml" />
     </modules>
   </component>
 </project>
