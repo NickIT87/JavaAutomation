@@ -1,46 +1,41 @@
 package org.example;
-
-
+// імпорт бібліотек
 import com.intelligt.modbus.jlibmodbus.Modbus;
 import com.intelligt.modbus.jlibmodbus.data.ModbusHoldingRegisters;
 import com.intelligt.modbus.jlibmodbus.exception.ModbusIOException;
-import com.intelligt.modbus.jlibmodbus.exception.ModbusNumberException;
 import com.intelligt.modbus.jlibmodbus.exception.ModbusProtocolException;
-import com.intelligt.modbus.jlibmodbus.master.ModbusMaster;
-import com.intelligt.modbus.jlibmodbus.master.ModbusMasterFactory;
-import com.intelligt.modbus.jlibmodbus.msg.request.ReadHoldingRegistersRequest;
-import com.intelligt.modbus.jlibmodbus.msg.response.ReadHoldingRegistersResponse;
 import com.intelligt.modbus.jlibmodbus.slave.ModbusSlaveFactory;
 import com.intelligt.modbus.jlibmodbus.slave.ModbusSlaveTCP;
 import com.intelligt.modbus.jlibmodbus.tcp.TcpParameters;
-import com.intelligt.modbus.jlibmodbus.utils.*;
+import com.intelligt.modbus.jlibmodbus.utils.DataUtils;
+import com.intelligt.modbus.jlibmodbus.utils.FrameEvent;
+import com.intelligt.modbus.jlibmodbus.utils.FrameEventListener;
+import com.intelligt.modbus.jlibmodbus.utils.ModbusSlaveTcpObserver;
+import com.intelligt.modbus.jlibmodbus.utils.TcpClientInfo;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Observer;
 
-
-public class LabTCP {
-    static public void main(String[] argv) {
-
-        //
+// базовий клас серверу
+public class Slave {
+    // головний метод классу (точка входу в програму)
+    public static void main(String[] argv) {
         try {
+            // базові налаштування сервера
             Modbus.setLogLevel(Modbus.LogLevel.LEVEL_DEBUG);
             TcpParameters tcpParameters = new TcpParameters();
-            //listening on localhost
             tcpParameters.setHost(InetAddress.getLocalHost());
             tcpParameters.setPort(Modbus.TCP_PORT);
             tcpParameters.setKeepAlive(true);
 
             ModbusSlaveTCP slave = (ModbusSlaveTCP) ModbusSlaveFactory.createModbusSlaveTCP(tcpParameters);
-            ModbusMaster master = ModbusMasterFactory.createModbusMasterTCP(tcpParameters);
 
-
-            master.setResponseTimeout(1000);
             slave.setServerAddress(Modbus.TCP_DEFAULT_ID);
             slave.setBroadcastEnabled(true);
-            slave.setReadTimeout(1000);
+            slave.setReadTimeout(1000);     // таймаут очікування в мілісеундах
 
+            // обробник подій відправки та отримання даних
             FrameEventListener listener = new FrameEventListener() {
                 @Override
                 public void frameSentEvent(FrameEvent event) {
@@ -53,8 +48,8 @@ public class LabTCP {
                 }
             };
 
-            master.addListener(listener);
             slave.addListener(listener);
+            // обробник подій підключення клієнта до серверу
             Observer o = new ModbusSlaveTcpObserver() {
                 @Override
                 public void clientAccepted(TcpClientInfo info) {
@@ -68,14 +63,15 @@ public class LabTCP {
             };
             slave.addObserver(o);
 
-            ModbusHoldingRegisters holdingRegisters = new ModbusHoldingRegisters(1000);
+            // створення сховища даних
+            ModbusHoldingRegisters holdingRegisters = new ModbusHoldingRegisters(2000);
 
             for (int i = 0; i < holdingRegisters.getQuantity(); i++) {
                 //fill
                 holdingRegisters.set(i, i + 1);
             }
 
-            //place the number PI at offset 6
+            // задання базових значень регістрів 1 та 6
             holdingRegisters.setFloat64At(1, Math.PI);
             holdingRegisters.setFloat64At(6, 1.1);
 
@@ -83,39 +79,11 @@ public class LabTCP {
 
             Modbus.setAutoIncrementTransactionId(true);
 
+            // запуск сервера
             slave.listen();
 
-            master.connect();
-
-            //prepare request
-            ReadHoldingRegistersRequest request = new ReadHoldingRegistersRequest();
-            request.setServerAddress(Modbus.TCP_DEFAULT_ID);
-            request.setStartAddress(0);
-            request.setQuantity(10);
-            ReadHoldingRegistersResponse response = (ReadHoldingRegistersResponse) request.getResponse();
-
-            master.processRequest(request);
-            ModbusHoldingRegisters registers = response.getHoldingRegisters();
-            for (int r : registers) {
-                System.out.println("HoldingRegister: " + r);
-            }
-            //get float
-            //System.out.println("PI is approximately equal to " + registers.getFloat64At(0));
-            System.out.println("Custom float value " + registers.getFloat64At(1));
-            System.out.println("Custom float value " + registers.getFloat64At(6));
-            //System.out.println("Custom float value " + registers.getFloat64At(8699));
-            System.out.println();
-
-            master.disconnect();
-
-            slave.shutdown();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (ModbusProtocolException e) {
-            e.printStackTrace();
-        } catch (ModbusIOException e) {
-            e.printStackTrace();
-        } catch (ModbusNumberException e) {
+            //slave.shutdown();
+        } catch (UnknownHostException | ModbusProtocolException | ModbusIOException e) {
             e.printStackTrace();
         }
     }
