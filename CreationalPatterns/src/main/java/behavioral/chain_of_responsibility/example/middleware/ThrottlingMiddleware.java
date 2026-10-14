@@ -21,6 +21,7 @@ public class ThrottlingMiddleware extends Middleware {
      * objects. For instance, an element of a chain can change the order of
      * checks by running its check after all other checks.
      */
+    @Override
     public boolean check(String email, String password) {
         if (System.currentTimeMillis() > currentTime + 60_000) {
             request = 0;
@@ -31,7 +32,8 @@ public class ThrottlingMiddleware extends Middleware {
 
         if (request > requestPerMinute) {
             System.out.println("Request limit exceeded!");
-            Thread.currentThread().stop();
+//            Thread.currentThread().stop();
+            return false;
         }
         return checkNext(email, password);
     }
