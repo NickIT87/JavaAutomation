@@ -1,7 +1,10 @@
-
 {
+    "editor.fontFamily": "'Terminus \\(TTF\\)'",
+    "editor.fontSize": 22,
+    "window.zoomLevel": 1,
+    "editor.fontLigatures": false,
     "java.compile.nullAnalysis.mode": "automatic",
-    "terminal.integrated.fontFamily": "Menlo",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "'Terminus \\(TTF\\)'",
+    "terminal.integrated.fontSize": 22,
     "terminal.integrated.letterSpacing": 0
 }
