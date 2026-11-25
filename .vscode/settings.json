@@ -1,0 +1,7 @@
+
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "terminal.integrated.fontFamily": "Menlo",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.letterSpacing": 0
+}
